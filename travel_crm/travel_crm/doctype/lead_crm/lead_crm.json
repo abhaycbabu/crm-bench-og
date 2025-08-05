@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "LEAD.####",
+ "creation": "2025-07-21 12:48:38.062712",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "lead_name",
+  "email",
+  "phone",
+  "destination_interested",
+  "source",
+  "assigned_sales_person",
+  "from_date",
+  "to_date",
+  "group_size",
+  "budget",
+  "visa_type",
+  "lead_interaction",
+  "lead_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "destination_interested",
+   "fieldtype": "Link",
+   "label": "Destination Interested",
+   "options": "Destination"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Website\nWhatsApp\nReferral"
+  },
+  {
+   "fieldname": "lead_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Lead Status",
+   "options": "New\nQualified\nFollow-up\nQuoted\nConverted\nLost"
+  },
+  {
+   "fieldname": "lead_interaction",
+   "fieldtype": "Table",
+   "label": "Lead Interaction",
+   "options": "Lead Interaction"
+  },
+  {
+   "fieldname": "assigned_sales_person",
+   "fieldtype": "Link",
+   "label": "Assigned Sales Person",
+   "options": "User"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "group_size",
+   "fieldtype": "Int",
+   "label": "Group Size"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Currency",
+   "label": "Budget"
+  },
+  {
+   "fieldname": "visa_type",
+   "fieldtype": "Select",
+   "label": "Visa Type",
+   "options": "Tourist\nBusiness\nStudent\nTransit\nWork"
+  },
+  {
+   "fieldname": "lead_name",
+   "fieldtype": "Data",
+   "label": "Lead Name"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-23 11:33:28.831574",
+ "modified_by": "Administrator",
+ "module": "Travel Crm",
+ "name": "Lead CRM",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

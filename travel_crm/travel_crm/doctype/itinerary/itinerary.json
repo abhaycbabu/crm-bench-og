@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-21 14:00:31.829995",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_order",
+  "itinerary_date",
+  "day_plan",
+  "send_as_pdf",
+  "send_via_whatsapp"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "itinerary_date",
+   "fieldtype": "Date",
+   "label": "Itinerary Date"
+  },
+  {
+   "fieldname": "day_plan",
+   "fieldtype": "Table",
+   "label": "Day Plan",
+   "options": "Itinerary Item"
+  },
+  {
+   "fieldname": "send_as_pdf",
+   "fieldtype": "Button",
+   "label": "Send as PDF"
+  },
+  {
+   "fieldname": "send_via_whatsapp",
+   "fieldtype": "Button",
+   "label": "Send via WhatsApp "
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-21 14:02:27.399193",
+ "modified_by": "Administrator",
+ "module": "Travel Crm",
+ "name": "Itinerary",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

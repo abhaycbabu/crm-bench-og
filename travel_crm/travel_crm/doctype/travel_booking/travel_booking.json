@@ -1,0 +1,246 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Booking-.####",
+ "creation": "2025-07-21 11:09:02.973676",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "person_count",
+  "destination",
+  "travel_date_starting",
+  "travel_date_ending",
+  "use_package",
+  "package",
+  "package_total",
+  "column_break_scgb",
+  "assigned_ops_person",
+  "status",
+  "visa_type",
+  "visa_progress",
+  "project",
+  "section_break_omxx",
+  "hotel_details_column",
+  "hotel",
+  "check_in",
+  "check_out",
+  "column_break_wjnq",
+  "cab",
+  "pickup_date",
+  "drop_date",
+  "column_break_kfwm",
+  "activities",
+  "section_break_ukrm",
+  "documents",
+  "flight_info",
+  "special_instructions",
+  "whatsapp_log"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Link",
+   "label": "Destination",
+   "options": "Destination"
+  },
+  {
+   "fieldname": "travel_date_starting",
+   "fieldtype": "Date",
+   "label": "Travel Date Starting"
+  },
+  {
+   "fieldname": "travel_date_ending",
+   "fieldtype": "Date",
+   "label": "Travel Date Ending"
+  },
+  {
+   "bold": 1,
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "label": "Hotel",
+   "options": "Destination Vendor"
+  },
+  {
+   "bold": 1,
+   "fieldname": "cab",
+   "fieldtype": "Link",
+   "label": "Cab",
+   "options": "Destination Vendor"
+  },
+  {
+   "fieldname": "flight_info",
+   "fieldtype": "Text",
+   "label": "Flight Info"
+  },
+  {
+   "fieldname": "documents",
+   "fieldtype": "Attach",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "assigned_ops_person",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned Ops Person",
+   "options": "User"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPending\nConfirmed\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "whatsapp_log",
+   "fieldtype": "Table",
+   "label": "WhatsApp Log",
+   "options": "Communication Log"
+  },
+  {
+   "bold": 1,
+   "fieldname": "activities",
+   "fieldtype": "Table",
+   "label": "Activities",
+   "options": "Selected Activity"
+  },
+  {
+   "fieldname": "column_break_scgb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "visa_type",
+   "fieldtype": "Link",
+   "label": "Visa Type",
+   "options": "Visa Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "visa_progress",
+   "fieldtype": "Percent",
+   "label": "Visa Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_omxx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "check_in",
+   "fieldtype": "Date",
+   "label": "Check In"
+  },
+  {
+   "fieldname": "check_out",
+   "fieldtype": "Date",
+   "label": "Check Out"
+  },
+  {
+   "fieldname": "column_break_wjnq",
+   "fieldtype": "Column Break",
+   "label": "Cab Details"
+  },
+  {
+   "fieldname": "pickup_date",
+   "fieldtype": "Datetime",
+   "label": "Pickup Date"
+  },
+  {
+   "fieldname": "drop_date",
+   "fieldtype": "Datetime",
+   "label": "Drop Date"
+  },
+  {
+   "fieldname": "column_break_kfwm",
+   "fieldtype": "Column Break",
+   "label": "Activity Details"
+  },
+  {
+   "fieldname": "section_break_ukrm",
+   "fieldtype": "Section Break",
+   "label": "Documents And Attachments"
+  },
+  {
+   "fieldname": "hotel_details_column",
+   "fieldtype": "Column Break",
+   "label": "Hotel Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "use_package",
+   "fieldtype": "Check",
+   "label": "Use Package"
+  },
+  {
+   "fieldname": "package",
+   "fieldtype": "Link",
+   "label": "Package",
+   "options": "Travel Package"
+  },
+  {
+   "fieldname": "package_total",
+   "fieldtype": "Currency",
+   "label": "Package Total"
+  },
+  {
+   "fieldname": "person_count",
+   "fieldtype": "Int",
+   "label": "Person Count"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-05 11:38:14.093104",
+ "modified_by": "Administrator",
+ "module": "Travel Crm",
+ "name": "Travel Booking",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Ops Team",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

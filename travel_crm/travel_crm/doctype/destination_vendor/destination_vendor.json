@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "creation": "2025-07-21 10:26:06.944060",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cseg",
+  "vendor_details_column",
+  "destination",
+  "vendor_name",
+  "vendor_type",
+  "contact_person",
+  "phone",
+  "email",
+  "column_break_khen",
+  "base_price",
+  "markup",
+  "photos",
+  "contract_file",
+  "bank_details_section",
+  "bank_name",
+  "ifsc",
+  "account"
+ ],
+ "fields": [
+  {
+   "fieldname": "destination",
+   "fieldtype": "Link",
+   "label": "Destination",
+   "options": "Destination"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "vendor_type",
+   "fieldtype": "Select",
+   "label": "Vendor Type",
+   "options": "Hotel\nCab\nActivities\nDMC"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "bank_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "ifsc",
+   "fieldtype": "Data",
+   "label": "IFSC"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Data",
+   "label": "Account"
+  },
+  {
+   "fieldname": "base_price",
+   "fieldtype": "Currency",
+   "label": "Base Price"
+  },
+  {
+   "fieldname": "markup",
+   "fieldtype": "Percent",
+   "label": "Markup"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Attach Image",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "contract_file",
+   "fieldtype": "Attach",
+   "label": "Contract FIle"
+  },
+  {
+   "fieldname": "vendor_details_column",
+   "fieldtype": "Column Break",
+   "label": "Vendor Details"
+  },
+  {
+   "fieldname": "section_break_cseg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_khen",
+   "fieldtype": "Column Break",
+   "label": "Pricing And Attachments"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-30 11:16:34.266550",
+ "modified_by": "Administrator",
+ "module": "Travel Crm",
+ "name": "Destination Vendor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
