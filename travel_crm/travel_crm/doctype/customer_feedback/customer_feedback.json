@@ -9,7 +9,9 @@
   "customer",
   "travel_booking",
   "rating",
-  "feedback"
+  "feedback",
+  "follow_up_task",
+  "gift_status"
  ],
  "fields": [
   {
@@ -34,12 +36,24 @@
    "fieldname": "feedback",
    "fieldtype": "Text",
    "label": "Feedback"
+  },
+  {
+   "fieldname": "follow_up_task",
+   "fieldtype": "Link",
+   "label": "Follow-up Task",
+   "options": "Task"
+  },
+  {
+   "fieldname": "gift_status",
+   "fieldtype": "Select",
+   "label": "Gift Status",
+   "options": "Not Started\nGift Sent\nDeclined"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-06 10:54:10.091301",
+ "modified": "2025-08-06 14:18:36.520588",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Customer Feedback",
