@@ -51,9 +51,18 @@ doc_events = {
     "Task": {
         "on_update": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_visa_task_progress"
     },
-        "Sales Invoice": {
-            "on_submit": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_travel_booking_status_on_payment"
+    "Sales Invoice": {
+        "on_submit": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_travel_booking_status_on_payment"
 
+    },
+    "Customer Feedback": {
+        "after_insert": "travel_crm.travel_crm.doctype.customer_feedback.customer_feedback.create_follow_up_task"
+    },
+    "Task": {
+        "on_update": "travel_crm.travel_crm.doctype.customer_feedback.customer_feedback.mark_gift_sent"
+    },
+    "Lead": {
+        "validate": "travel_crm.lead.auto_qualify_lead"
     }
 }
 
