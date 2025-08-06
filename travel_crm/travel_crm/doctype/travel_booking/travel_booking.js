@@ -11,18 +11,8 @@ frappe.ui.form.on('Travel Booking', {
 
   refresh(frm) {
 
-    // Set read-only status based on current status
-    // const locked_statuses = ["Draft", "Pending", "Completed"];
-    
-    // if (locked_statuses.includes(frm.doc.status)) {
-    //   frm.set_df_property("status", "read_only", 1);
-    // } else {
-    //   frm.set_df_property("status", "read_only", 0);
-    // }
-
-
     frm.set_df_property('status', 'read_only', frm.doc.status === 'Completed');
-   
+
     // Sales team button
     if (frappe.user.has_role("Sales Team") && !frm.is_new()) {
       frm.add_custom_button("Send Hotel/Cab Options", function () {
@@ -101,6 +91,36 @@ frappe.ui.form.on('Travel Booking', {
         }, 'Actions');
       }
 
+      // Send Feedback Link button
+      if (frm.doc.status === 'Completed') {
+        frm.add_custom_button('Send Feedback Link', () => {
+          let base_url = window.location.origin;
+          let link = `${base_url}/customer-feedback/new?customer=${frm.doc.customer}&travel_booking=${frm.doc.name}`;
+          frappe.msgprint(__('Feedback Link: <br><a href="{0}" target="_blank">{0}</a>', [link]));
+        }, 'Actions');
+
+        // Fetch submitted feedback (if any)
+        frappe.call({
+          method: "frappe.client.get_list",
+          args: {
+            doctype: "Customer Feedback",
+            filters: {
+              travel_booking: frm.doc.name
+            },
+            fields: ["name", "customer", "feedback", "creation"]
+          },
+          callback: function (r) {
+            if (r.message && r.message.length) {
+              let feedback = r.message[0];
+              frm.dashboard.add_comment(__('Feedback received from {0} on {1}: {2}', [
+                feedback.customer,
+                frappe.datetime.str_to_user(feedback.creation),
+                feedback.feedback || "No comments"
+              ]));
+            }
+          }
+        });
+      }
     }
   },
 

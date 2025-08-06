@@ -1,65 +1,49 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "FB.####",
  "creation": "2025-07-21 12:38:44.078017",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "sales_order",
-  "feedback_text",
+  "customer",
+  "travel_booking",
   "rating",
-  "gift_sent",
-  "gift_type",
-  "courier_status",
-  "cost"
+  "feedback"
  ],
  "fields": [
   {
-   "fieldname": "sales_order",
-   "fieldtype": "Link",
-   "label": "Sales Order",
-   "options": "Sales Order"
-  },
-  {
-   "fieldname": "feedback_text",
-   "fieldtype": "Text",
-   "label": "Feedback Text"
-  },
-  {
    "fieldname": "rating",
-   "fieldtype": "Int",
-   "label": "Rating"
-  },
-  {
-   "default": "0",
-   "fieldname": "gift_sent",
-   "fieldtype": "Check",
-   "label": "Gift Sent"
-  },
-  {
-   "fieldname": "gift_type",
-   "fieldtype": "Data",
-   "label": "Gift Type"
-  },
-  {
-   "fieldname": "courier_status",
    "fieldtype": "Select",
-   "label": "Courier Status",
-   "options": "Sent\nDelivered\nReturned"
+   "label": "Rating",
+   "options": "1\n2\n3\n4\n5"
   },
   {
-   "fieldname": "cost",
-   "fieldtype": "Currency",
-   "label": "Cost"
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "travel_booking",
+   "fieldtype": "Link",
+   "label": "Travel Booking",
+   "options": "Travel Booking"
+  },
+  {
+   "fieldname": "feedback",
+   "fieldtype": "Text",
+   "label": "Feedback"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-21 13:58:14.333573",
+ "modified": "2025-08-06 10:54:10.091301",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Customer Feedback",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
