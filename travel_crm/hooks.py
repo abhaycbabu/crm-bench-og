@@ -38,9 +38,10 @@ has_permission = {
 doctype_list_js = {
     # "Lead CRM": "public/js/lead_crm_list.js",
     "Customer": "public/js/customer.js",
-    "Lead": "public/js/lead.js"
-
+    # "Lead": "public/js/lead.js",
+    "Opportunity": "public/js/opportunity.js"
 }
+
 override_whitelisted_methods = {
     "erpnext.crm.doctype.lead.lead.make_customer": "travel_crm.lead_to_customer.make_customer"
 }
@@ -62,7 +63,9 @@ doc_events = {
         "on_update": "travel_crm.travel_crm.doctype.customer_feedback.customer_feedback.mark_gift_sent"
     },
     "Lead": {
-        "validate": "travel_crm.lead.auto_qualify_lead"
+        "validate": "travel_crm.lead.auto_qualify_lead",
+        # "on_update": "travel_crm.lead.auto_create_opportunity"
+
     }
 }
 
@@ -92,7 +95,9 @@ fixtures = [
                 "Task-custom_assigned_ops_person",
                 "Sales Invoice-custom_travel_booking",
                 "Quotation-custom_travel_booking",
-                "Payment Entry-custom_reference_booking"
+                "Payment Entry-custom_reference_booking",
+                "Opportunity-custom_destination",
+                "Opportunity-custom_travel_package"
             ]]
         ]
     }
