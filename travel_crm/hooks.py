@@ -66,8 +66,7 @@ doc_events = {
     "Lead": {
         "validate": "travel_crm.lead.auto_qualify_lead",
         # "on_update": "travel_crm.lead.auto_create_opportunity"
-
-    },
+    }
 
 }
 
