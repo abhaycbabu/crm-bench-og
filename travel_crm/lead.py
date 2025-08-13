@@ -19,41 +19,41 @@ def auto_qualify_lead(doc, method=None):
         doc.qualification_status = "Unqualified"
 
 
-import traceback
+# import traceback
 
-def auto_create_opportunity(doc, method):
-    try:
-        status_changed = False
+# def auto_create_opportunity(doc, method):
+#     try:
+#         status_changed = False
 
-        if doc.qualification_status == "Qualified":
-            if doc.status != "Opportunity":
-                doc.status = "Opportunity"
-                status_changed = True
-        else:
-            if doc.status != "Lead":
-                doc.status = "Lead"
-                status_changed = True
+#         if doc.qualification_status == "Qualified":
+#             if doc.status != "Opportunity":
+#                 doc.status = "Opportunity"
+#                 status_changed = True
+#         else:
+#             if doc.status != "Lead":
+#                 doc.status = "Lead"
+#                 status_changed = True
 
-        if status_changed:
-            doc.save(ignore_permissions=True)
+#         if status_changed:
+#             doc.save(ignore_permissions=True)
 
-        # Avoid duplicate opportunity
-        if frappe.db.exists("Opportunity", {"party_name": doc.name}):
-            return
+#         # Avoid duplicate opportunity
+#         if frappe.db.exists("Opportunity", {"party_name": doc.name}):
+#             return
 
-        # Create Opportunity
-        opportunity = frappe.new_doc("Opportunity")
-        opportunity.opportunity_from = "Lead"
-        opportunity.party_name = doc.name
-        opportunity.enquiry_type = "Sales"
-        opportunity.custom_destination = doc.custom_preferred_destination
-        opportunity.transaction_date = frappe.utils.nowdate()
-        opportunity.expected_closing = doc.custom_expected_travel_date
-        opportunity.company = frappe.defaults.get_user_default("Company")
-        opportunity.save(ignore_permissions=True)
-        frappe.db.commit()
+#         # Create Opportunity
+#         opportunity = frappe.new_doc("Opportunity")
+#         opportunity.opportunity_from = "Lead"
+#         opportunity.party_name = doc.name
+#         opportunity.enquiry_type = "Sales"
+#         opportunity.custom_destination = doc.custom_preferred_destination
+#         opportunity.transaction_date = frappe.utils.nowdate()
+#         opportunity.expected_closing = doc.custom_expected_travel_date
+#         opportunity.company = frappe.defaults.get_user_default("Company")
+#         opportunity.save(ignore_permissions=True)
+#         frappe.db.commit()
 
-    except Exception as e:
-        frappe.log_error(title="Auto Create Opportunity Error", message=traceback.format_exc())
-        frappe.throw("Error while auto-creating Opportunity. Check error log.")
+#     except Exception as e:
+#         frappe.log_error(title="Auto Create Opportunity Error", message=traceback.format_exc())
+#         frappe.throw("Error while auto-creating Opportunity. Check error log.")
 

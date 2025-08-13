@@ -8,6 +8,22 @@ frappe.ui.form.on('Travel Booking', {
       };
     });
   },
+  customer: function (frm) {
+    if (frm.doc.customer) {
+      frappe.db.get_value('Customer', frm.doc.customer,
+        ['custom_group_size', 'custom_visa_type']) // ✅ fetch both fields
+        .then(r => {
+          if (r.message) {
+            if (r.message.custom_group_size) {
+              frm.set_value('person_count', r.message.custom_group_size);
+            }
+            if (r.message.custom_visa_type) {
+              frm.set_value('visa_type', r.message.custom_visa_type);
+            }
+          }
+        });
+    }
+  },
 
   refresh(frm) {
 

@@ -36,9 +36,10 @@ has_permission = {
 
 #filter color to lead status
 doctype_list_js = {
-    # "Lead CRM": "public/js/lead_crm_list.js",
     "Customer": "public/js/customer.js",
     # "Lead": "public/js/lead.js",
+}
+doctype_js = {
     "Opportunity": "public/js/opportunity.js"
 }
 
@@ -66,7 +67,8 @@ doc_events = {
         "validate": "travel_crm.lead.auto_qualify_lead",
         # "on_update": "travel_crm.lead.auto_create_opportunity"
 
-    }
+    },
+
 }
 
 
@@ -97,7 +99,10 @@ fixtures = [
                 "Quotation-custom_travel_booking",
                 "Payment Entry-custom_reference_booking",
                 "Opportunity-custom_destination",
-                "Opportunity-custom_travel_package"
+                "Opportunity-custom_travel_package",
+                "Customer-custom_visa_type",
+                "Customer-custom_group_size",
+                "Customer-custom_budget_range"
             ]]
         ]
     }
