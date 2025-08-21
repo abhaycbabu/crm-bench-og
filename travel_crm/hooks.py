@@ -36,11 +36,11 @@ has_permission = {
 
 #filter color to lead status
 doctype_list_js = {
-    "Customer": "public/js/customer.js",
-    # "Lead": "public/js/lead.js",
+    "Customer": "public/js/customer.js"
 }
 doctype_js = {
-    "Opportunity": "public/js/opportunity.js"
+    "Opportunity": "public/js/opportunity.js",
+    "Lead": "public/js/lead.js"
 }
 
 override_whitelisted_methods = {
@@ -66,7 +66,12 @@ doc_events = {
     "Lead": {
         "validate": "travel_crm.lead.auto_qualify_lead",
         # "on_update": "travel_crm.lead.auto_create_opportunity"
+    },
+ 
+    "Quotation": {
+        "on_update": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_booking_status_from_quotation"
     }
+
 
 }
 

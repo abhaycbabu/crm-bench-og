@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:destination_name",
  "creation": "2025-07-21 10:32:55.739447",
@@ -33,7 +34,7 @@
    "fieldname": "default_currency",
    "fieldtype": "Select",
    "label": "Default Currency",
-   "options": "INR\nAED\nIDR\nEUR\nJPY\nUSD\nTHB\nZAR\nGBP"
+   "options": "INR\nAED\nIDR\nEUR\nJPY\nUSD\nTHB\nZAR\nGBP\nTRY\nAUD"
   },
   {
    "default": "0",
@@ -45,7 +46,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-22 15:54:29.085002",
+ "modified": "2025-08-18 10:32:36.952284",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Destination",

@@ -11,3 +11,16 @@
 //     }
 //   }
 // });
+frappe.ui.form.on("Lead", {
+    onload(frm) {
+        frm.set_query("assigned_to", function() {
+            return {
+                query: "travel_crm.lead.get_sales_team_users"
+            };
+        });
+    }
+});
+
+
+
+

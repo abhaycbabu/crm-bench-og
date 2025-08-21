@@ -56,4 +56,25 @@ def auto_qualify_lead(doc, method=None):
 #     except Exception as e:
 #         frappe.log_error(title="Auto Create Opportunity Error", message=traceback.format_exc())
 #         frappe.throw("Error while auto-creating Opportunity. Check error log.")
+@frappe.whitelist()
+def get_sales_team_users(doctype=None, txt=None, searchfield=None, start=0, page_len=20, filters=None):
+    txt = txt or ""
+    start = start or 0
+    page_len = page_len or 20
+
+    return frappe.db.sql("""
+        SELECT DISTINCT u.name, u.full_name
+        FROM `tabUser` u
+        JOIN `tabHas Role` hr ON hr.parent = u.name
+        WHERE hr.role = 'Sales Team'
+        AND u.enabled = 1
+        AND (u.name LIKE %(txt)s OR u.full_name LIKE %(txt)s)
+        ORDER BY u.full_name
+        LIMIT %(start)s, %(page_len)s
+    """, {
+        "txt": f"%{txt}%",
+        "start": start,
+        "page_len": page_len
+    })
+
 

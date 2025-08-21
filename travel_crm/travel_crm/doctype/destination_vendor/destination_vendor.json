@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "creation": "2025-07-21 10:26:06.944060",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -114,7 +115,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-30 11:16:34.266550",
+ "modified": "2025-08-18 10:17:59.189659",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Destination Vendor",

@@ -54,7 +54,7 @@ frappe.ui.form.on('Travel Booking', {
 
     if (frappe.session.user === 'Administrator' || frappe.user.has_role("Sales Team")) {
       // Create Sales Order button
-      if (!frm.doc.__islocal && frm.doc.status == "Confirmed") {
+      if (!frm.doc.__islocal && frm.doc.status == "Pending") {
         frm.add_custom_button("Create Quotation", () => {
           frappe.call({
             method: "travel_crm.travel_crm.doctype.travel_booking.travel_booking.create_quotation_from_booking",

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Booking-.####",
+ "autoname": "TRV BOOKING-.####",
  "creation": "2025-07-21 11:09:02.973676",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -210,7 +210,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-13 12:31:23.810082",
+ "modified": "2025-08-18 12:22:10.622594",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Travel Booking",

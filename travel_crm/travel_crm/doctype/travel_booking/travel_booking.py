@@ -328,7 +328,32 @@ def create_quotation_from_booking(booking_name):
     quotation.set_missing_values()
     quotation.calculate_taxes_and_totals()
     quotation.insert()
+    quotation.submit()  # status becomes Open
+
+    # Update Travel Booking status to Confirmed immediately
+    booking = frappe.get_doc("Travel Booking", booking_name)
+    booking.status = "Confirmed"
+    booking.save(ignore_permissions=True, ignore_version=True)
+
     return quotation.name
+
+# Hook function for Quotation status changes
+def update_booking_status_from_quotation(doc, method=None):
+    """Update Travel Booking status based on Quotation status"""
+    booking_name = getattr(doc, "custom_travel_booking", None)
+    if booking_name:
+        booking = frappe.get_doc("Travel Booking", booking_name)
+        new_status = None
+
+        if doc.status == "Lost":
+            new_status = "Cancelled"
+        elif doc.status in ("Open", "Submitted"):
+            new_status = "Confirmed"
+
+        if new_status and booking.status != new_status:
+            booking.status = new_status
+            booking.save(ignore_permissions=True, ignore_version=True)
+            frappe.db.commit()
 
 
 # Get Package Details
@@ -403,4 +428,5 @@ def create_advance_payment(customer, amount, reference_booking=None):
     pe.set_exchange_rate()
     pe.insert()
     return pe.name
+
 

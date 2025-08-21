@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "prompt",
  "creation": "2025-07-30 17:40:45.811055",
@@ -27,6 +28,17 @@
    "options": "Destination"
   },
   {
+   "fieldname": "package_items",
+   "fieldtype": "Table",
+   "label": "Package Items",
+   "options": "Travel Package Item"
+  },
+  {
+   "fieldname": "base_price_per_person",
+   "fieldtype": "Currency",
+   "label": "Base Price per Person"
+  },
+  {
    "fieldname": "hotel",
    "fieldtype": "Link",
    "hidden": 1,
@@ -46,23 +58,12 @@
    "hidden": 1,
    "label": "Activities",
    "options": "Selected Activity"
-  },
-  {
-   "fieldname": "package_items",
-   "fieldtype": "Table",
-   "label": "Package Items",
-   "options": "Travel Package Item"
-  },
-  {
-   "fieldname": "base_price_per_person",
-   "fieldtype": "Currency",
-   "label": "Base Price per Person"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-04 15:42:38.666204",
+ "modified": "2025-08-18 11:10:42.293517",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Travel Package",
