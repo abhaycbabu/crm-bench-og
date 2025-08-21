@@ -69,7 +69,9 @@ doc_events = {
     },
  
     "Quotation": {
+        "on_change": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_booking_status_from_quotation",
         "on_update": "travel_crm.travel_crm.doctype.travel_booking.travel_booking.update_booking_status_from_quotation"
+
     }
 
 

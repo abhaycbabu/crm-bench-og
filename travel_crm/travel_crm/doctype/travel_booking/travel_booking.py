@@ -286,45 +286,28 @@ def update_visa_progress(project_name):
 @frappe.whitelist()
 def create_quotation_from_booking(booking_name):
     booking = frappe.get_doc("Travel Booking", booking_name)
+    package = frappe.get_doc("Travel Package", booking.package)
 
     quotation = frappe.new_doc("Quotation")
     quotation.party_name = booking.customer  # assuming this is set
     quotation.quotation_to = "Customer"
     quotation.custom_travel_booking = booking.name  # if you added this custom field
+    
+    person_count = booking.get("person_count") or 1
 
-    def get_vendor_price(vendor_name):
-        vendor = frappe.get_value("Destination Vendor", {"vendor_name": vendor_name}, "base_price")
-        return vendor if vendor else 0
+    # def get_vendor_price(vendor_name):
+    #     vendor = frappe.get_value("Destination Vendor", {"vendor_name": vendor_name}, "base_price")
+    #     return vendor if vendor else 0
 
-    # Add Hotel
-    if booking.hotel:
+    for item in package.package_items:
         quotation.append("items", {
             "item_code": "TRAVEL-PKG-001",
-            "item_name": booking.hotel,
-            "description": f"Hotel stay at {booking.destination} by {booking.hotel}",
-            "qty": 1,
-            "rate": get_vendor_price(booking.hotel)
+            "item_name": item.vendor,
+            "description": item.description or f"{item.service_type} at {package.destination}",
+            "qty": person_count,
+            "rate": item.base_price or 0
         })
 
-    # Add Cab
-    if booking.cab:
-        quotation.append("items", {
-            "item_code": "TRAVEL-PKG-001",
-            "item_name": booking.cab,
-            "description": f"Cab service at {booking.destination} by {booking.cab}",
-            "qty": 1,
-            "rate": get_vendor_price(booking.cab)
-        })
-
-    # Add Activities
-    for activity in booking.activities:
-        quotation.append("items", {
-            "item_code": "TRAVEL-PKG-001",
-            "item_name": activity.activity,
-            "description": f"Activities at {booking.destination} by {activity.activity}",
-            "qty": 1,
-            "rate": activity.price
-        })
     quotation.set_missing_values()
     quotation.calculate_taxes_and_totals()
     quotation.insert()
@@ -345,7 +328,7 @@ def update_booking_status_from_quotation(doc, method=None):
         booking = frappe.get_doc("Travel Booking", booking_name)
         new_status = None
 
-        if doc.status == "Lost":
+        if doc.status == "Lost" or doc.status == "Cancelled":
             new_status = "Cancelled"
         elif doc.status in ("Open", "Submitted"):
             new_status = "Confirmed"

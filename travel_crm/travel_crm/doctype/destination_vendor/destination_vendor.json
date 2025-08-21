@@ -27,6 +27,7 @@
   {
    "fieldname": "destination",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Destination",
    "options": "Destination"
   },
@@ -39,6 +40,7 @@
   {
    "fieldname": "vendor_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Vendor Type",
    "options": "Hotel\nCab\nActivities\nDMC"
   },
@@ -115,7 +117,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-18 10:17:59.189659",
+ "modified": "2025-08-21 12:33:47.946559",
  "modified_by": "Administrator",
  "module": "Travel Crm",
  "name": "Destination Vendor",
